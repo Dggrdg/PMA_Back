@@ -4,7 +4,6 @@ import java.io.InputStream;
 
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -17,12 +16,12 @@ public class ThreeBallService {
 
 		try {
 			InputStream inputStream = file.getInputStream();
-
 			Workbook workBook = new XSSFWorkbook(inputStream);
 
 			for (int sheetNum = 0; sheetNum < workBook.getNumberOfSheets(); sheetNum++) {
-
-//				XSSFSheet sheet = workBook.getSheetAt(sheetNum);
+				Sheet sheet = workBook.getSheetAt(sheetNum);
+				
+				System.out.println(workBook.getSheetName(sheetNum));
 			}
 
 			return null;

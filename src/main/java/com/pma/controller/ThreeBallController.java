@@ -20,7 +20,7 @@ public class ThreeBallController {
 	ThreeBallService threeBallService;
 
 	@PostMapping("/threeBall")
-	public ResponseEntity<?> threeBall(@RequestParam MultipartFile file) {
+	public ResponseEntity<?> threeBall(@RequestParam("file") MultipartFile file) {
 
 		if (file.isEmpty()) {
 			return ResponseEntity.badRequest().body("資料為空");
